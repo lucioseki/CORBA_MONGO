@@ -36,11 +36,9 @@ int main(int argc, char **argv){
     // the naming service.
     obj = tubeService->_this();
 
-		// o que faz aqui?
     CORBA::String_var x;
     x = orb->object_to_string(obj);
     cout << x << endl;
-		// 
 
     if( !bindObjectToName(orb, obj) )
       return 1;
