@@ -1,0 +1,9 @@
+#ifndef __CORBATUBE_H__
+#define __CORBATUBE_H__
+module CorbaTube{
+	interface TubeService{
+		boolean has_key(in string key);
+		void new_key(out string key);
+	};
+};
+#endif
