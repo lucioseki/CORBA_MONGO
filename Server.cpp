@@ -52,6 +52,7 @@ int main(int argc, char **argv){
 		try{
 			mongo::DBClientConnection c;
 			c.connect("localhost");
+			cout << "conectado!" << endl;
 		}catch(const mongo::DBException &e){
 			cout << "caught " << e.what() << endl;
 		}
