@@ -1,5 +1,5 @@
-#ifndef __CORBATUBE_H__
-#define __CORBATUBE_H__
+#ifndef __CORBATUBE_IDL__
+#define __CORBATUBE_IDL__
 module CorbaTube{
 	interface TubeService{
 		boolean has_key(in string key);
