@@ -118,88 +118,12 @@ CorbaTube::_objref_TubeService::_ptrToObjRef(const char* id)
 }
 
 // Proxy call descriptor class. Mangled signature:
-//  _cboolean_i_cstring
-class _0RL_cd_d9ea83a620354b5b_00000000
-  : public omniCallDescriptor
-{
-public:
-  inline _0RL_cd_d9ea83a620354b5b_00000000(LocalCallFn lcfn,const char* op_,size_t oplen,_CORBA_Boolean upcall=0):
-     omniCallDescriptor(lcfn, op_, oplen, 0, _user_exns, 0, upcall)
-  {
-    
-  }
-  
-  void marshalArguments(cdrStream&);
-  void unmarshalArguments(cdrStream&);
-
-  void unmarshalReturnedValues(cdrStream&);
-  void marshalReturnedValues(cdrStream&);
-  
-  
-  static const char* const _user_exns[];
-
-  ::CORBA::String_var arg_0_;
-  const char* arg_0;
-  ::CORBA::Boolean result;
-};
-
-void _0RL_cd_d9ea83a620354b5b_00000000::marshalArguments(cdrStream& _n)
-{
-  _n.marshalString(arg_0,0);
-
-}
-
-void _0RL_cd_d9ea83a620354b5b_00000000::unmarshalArguments(cdrStream& _n)
-{
-  arg_0_ = _n.unmarshalString(0);
-  arg_0 = arg_0_.in();
-
-}
-
-void _0RL_cd_d9ea83a620354b5b_00000000::marshalReturnedValues(cdrStream& _n)
-{
-  _n.marshalBoolean(result);
-
-}
-
-void _0RL_cd_d9ea83a620354b5b_00000000::unmarshalReturnedValues(cdrStream& _n)
-{
-  result = _n.unmarshalBoolean();
-
-}
-
-const char* const _0RL_cd_d9ea83a620354b5b_00000000::_user_exns[] = {
-  0
-};
-
-// Local call call-back function.
-static void
-_0RL_lcfn_d9ea83a620354b5b_10000000(omniCallDescriptor* cd, omniServant* svnt)
-{
-  _0RL_cd_d9ea83a620354b5b_00000000* tcd = (_0RL_cd_d9ea83a620354b5b_00000000*)cd;
-  CorbaTube::_impl_TubeService* impl = (CorbaTube::_impl_TubeService*) svnt->_ptrToInterface(CorbaTube::TubeService::_PD_repoId);
-  tcd->result = impl->has_key(tcd->arg_0);
-
-
-}
-
-::CORBA::Boolean CorbaTube::_objref_TubeService::has_key(const char* key)
-{
-  _0RL_cd_d9ea83a620354b5b_00000000 _call_desc(_0RL_lcfn_d9ea83a620354b5b_10000000, "has_key", 8);
-  _call_desc.arg_0 = key;
-
-  _invoke(_call_desc);
-  return _call_desc.result;
-
-
-}
-// Proxy call descriptor class. Mangled signature:
 //  _cstring
-class _0RL_cd_d9ea83a620354b5b_20000000
+class _0RL_cd_dbeb43a620354b5b_00000000
   : public omniCallDescriptor
 {
 public:
-  inline _0RL_cd_d9ea83a620354b5b_20000000(LocalCallFn lcfn,const char* op_,size_t oplen,_CORBA_Boolean upcall=0):
+  inline _0RL_cd_dbeb43a620354b5b_00000000(LocalCallFn lcfn,const char* op_,size_t oplen,_CORBA_Boolean upcall=0):
      omniCallDescriptor(lcfn, op_, oplen, 0, _user_exns, 0, upcall)
   {
     
@@ -215,27 +139,27 @@ public:
   ::CORBA::String_var result;
 };
 
-void _0RL_cd_d9ea83a620354b5b_20000000::marshalReturnedValues(cdrStream& _n)
+void _0RL_cd_dbeb43a620354b5b_00000000::marshalReturnedValues(cdrStream& _n)
 {
   _n.marshalString(result,0);
 
 }
 
-void _0RL_cd_d9ea83a620354b5b_20000000::unmarshalReturnedValues(cdrStream& _n)
+void _0RL_cd_dbeb43a620354b5b_00000000::unmarshalReturnedValues(cdrStream& _n)
 {
   result = _n.unmarshalString(0);
 
 }
 
-const char* const _0RL_cd_d9ea83a620354b5b_20000000::_user_exns[] = {
+const char* const _0RL_cd_dbeb43a620354b5b_00000000::_user_exns[] = {
   0
 };
 
 // Local call call-back function.
 static void
-_0RL_lcfn_d9ea83a620354b5b_30000000(omniCallDescriptor* cd, omniServant* svnt)
+_0RL_lcfn_dbeb43a620354b5b_10000000(omniCallDescriptor* cd, omniServant* svnt)
 {
-  _0RL_cd_d9ea83a620354b5b_20000000* tcd = (_0RL_cd_d9ea83a620354b5b_20000000*)cd;
+  _0RL_cd_dbeb43a620354b5b_00000000* tcd = (_0RL_cd_dbeb43a620354b5b_00000000*)cd;
   CorbaTube::_impl_TubeService* impl = (CorbaTube::_impl_TubeService*) svnt->_ptrToInterface(CorbaTube::TubeService::_PD_repoId);
   tcd->result = impl->new_key();
 
@@ -244,7 +168,7 @@ _0RL_lcfn_d9ea83a620354b5b_30000000(omniCallDescriptor* cd, omniServant* svnt)
 
 char* CorbaTube::_objref_TubeService::new_key()
 {
-  _0RL_cd_d9ea83a620354b5b_20000000 _call_desc(_0RL_lcfn_d9ea83a620354b5b_30000000, "new_key", 8);
+  _0RL_cd_dbeb43a620354b5b_00000000 _call_desc(_0RL_lcfn_dbeb43a620354b5b_10000000, "new_key", 8);
 
 
   _invoke(_call_desc);
@@ -281,17 +205,9 @@ CorbaTube::_impl_TubeService::_dispatch(omniCallHandle& _handle)
 {
   const char* op = _handle.operation_name();
 
-  if( omni::strMatch(op, "has_key") ) {
-
-    _0RL_cd_d9ea83a620354b5b_00000000 _call_desc(_0RL_lcfn_d9ea83a620354b5b_10000000, "has_key", 8, 1);
-    
-    _handle.upcall(this,_call_desc);
-    return 1;
-  }
-
   if( omni::strMatch(op, "new_key") ) {
 
-    _0RL_cd_d9ea83a620354b5b_20000000 _call_desc(_0RL_lcfn_d9ea83a620354b5b_30000000, "new_key", 8, 1);
+    _0RL_cd_dbeb43a620354b5b_00000000 _call_desc(_0RL_lcfn_dbeb43a620354b5b_10000000, "new_key", 8, 1);
     
     _handle.upcall(this,_call_desc);
     return 1;

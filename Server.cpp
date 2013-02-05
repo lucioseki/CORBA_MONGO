@@ -3,27 +3,35 @@
 #include <mongo/client/dbclient.h>
 
 using namespace std;
+using namespace mongo;
+
+DBClientConnection c;
 
 class CTubeService_i : public POA_CorbaTube::TubeService{
 	public:
 		inline CTubeService_i(){}
 		virtual ~CTubeService_i(){}
-		virtual bool has_key(const char *key);
 		virtual char *new_key();
 };
 
-bool CTubeService_i::has_key(const char *key){
-	return true;
-}
-
 char* CTubeService_i::new_key(){
-	return CORBA::string_dup("aeel");
+	BSONObj p = BSON(GENOID);
+	c.insert("test", p);
+	return CORBA::string_dup(p.getStringField("_id"));
 }
 
 static CORBA::Boolean bindObjectToName(CORBA::ORB_ptr, CORBA::Object_ptr);
 
 int main(int argc, char **argv){
   try {
+		try{
+			c.connect("localhost");
+			cout << "conectado no mongo!" << endl;
+		}catch(const DBException &e){
+			cout << "caught " << e.what() << endl;
+		}
+
+
     CORBA::ORB_var orb = CORBA::ORB_init(argc, argv);
 
     CORBA::Object_var obj = orb->resolve_initial_references("RootPOA");
@@ -48,14 +56,6 @@ int main(int argc, char **argv){
 
     PortableServer::POAManager_var pman = poa->the_POAManager();
     pman->activate();
-
-		try{
-			mongo::DBClientConnection c;
-			c.connect("localhost");
-			cout << "conectado!" << endl;
-		}catch(const mongo::DBException &e){
-			cout << "caught " << e.what() << endl;
-		}
 
     orb->run();
   }

@@ -2,7 +2,6 @@
 #define __CORBATUBE_IDL__
 module CorbaTube{
 	interface TubeService{
-		boolean has_key(in string key);
 		string new_key();
 	};
 };

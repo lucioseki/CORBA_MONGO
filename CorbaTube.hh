@@ -119,7 +119,6 @@ _CORBA_MODULE_BEG
     public virtual omniObjRef
   {
   public:
-    ::CORBA::Boolean has_key(const char* key);
     char* new_key();
 
     inline _objref_TubeService()  { _PR_setobj(0); }  // nil
@@ -154,7 +153,6 @@ _CORBA_MODULE_BEG
   public:
     virtual ~_impl_TubeService();
 
-    virtual ::CORBA::Boolean has_key(const char* key) = 0;
     virtual char* new_key() = 0;
     
   public:  // Really protected, workaround for xlC
