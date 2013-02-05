@@ -194,7 +194,7 @@ _0RL_lcfn_d9ea83a620354b5b_10000000(omniCallDescriptor* cd, omniServant* svnt)
 
 }
 // Proxy call descriptor class. Mangled signature:
-//  void_o_cstring
+//  _cstring
 class _0RL_cd_d9ea83a620354b5b_20000000
   : public omniCallDescriptor
 {
@@ -212,18 +212,18 @@ public:
   
   static const char* const _user_exns[];
 
-  ::CORBA::String_var arg_0;
+  ::CORBA::String_var result;
 };
 
 void _0RL_cd_d9ea83a620354b5b_20000000::marshalReturnedValues(cdrStream& _n)
 {
-  _n.marshalString(arg_0,0);
+  _n.marshalString(result,0);
 
 }
 
 void _0RL_cd_d9ea83a620354b5b_20000000::unmarshalReturnedValues(cdrStream& _n)
 {
-  arg_0 = _n.unmarshalString(0);
+  result = _n.unmarshalString(0);
 
 }
 
@@ -237,18 +237,18 @@ _0RL_lcfn_d9ea83a620354b5b_30000000(omniCallDescriptor* cd, omniServant* svnt)
 {
   _0RL_cd_d9ea83a620354b5b_20000000* tcd = (_0RL_cd_d9ea83a620354b5b_20000000*)cd;
   CorbaTube::_impl_TubeService* impl = (CorbaTube::_impl_TubeService*) svnt->_ptrToInterface(CorbaTube::TubeService::_PD_repoId);
-  impl->new_key(tcd->arg_0.out());
+  tcd->result = impl->new_key();
 
 
 }
 
-void CorbaTube::_objref_TubeService::new_key(::CORBA::String_out key)
+char* CorbaTube::_objref_TubeService::new_key()
 {
   _0RL_cd_d9ea83a620354b5b_20000000 _call_desc(_0RL_lcfn_d9ea83a620354b5b_30000000, "new_key", 8);
 
 
   _invoke(_call_desc);
-  key = _call_desc.arg_0._retn();
+  return _call_desc.result._retn();
 
 
 }

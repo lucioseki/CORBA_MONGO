@@ -3,7 +3,7 @@
 module CorbaTube{
 	interface TubeService{
 		boolean has_key(in string key);
-		void new_key(out string key);
+		string new_key();
 	};
 };
 #endif
