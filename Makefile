@@ -1,7 +1,7 @@
 CC=g++
 LIBS=-lomniORB4 -lomnithread -lomniDynamic4 -pthread -lmongoclient -lboost_thread-mt -lboost_filesystem -lboost_program_options -lboost_system
 
-all Server: CorbaTubeSK.o Server.cpp
+a.out: CorbaTubeSK.o Server.cpp
 	$(CC) Server.cpp CorbaTubeSK.o -g $(LIBS)
 
 CorbaTubeSK.o: CorbaTubeSK.cc
