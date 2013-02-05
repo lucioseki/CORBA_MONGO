@@ -1,5 +1,6 @@
 #include <iostream>
 #include "CorbaTube.hh"
+#include <mongo/client/dbclient.h>
 
 using namespace std;
 
@@ -47,6 +48,13 @@ int main(int argc, char **argv){
 
     PortableServer::POAManager_var pman = poa->the_POAManager();
     pman->activate();
+
+		try{
+			mongo::DBClientConnection c;
+			c.connect("localhost");
+		}catch(const mongo::DBException &e){
+			cout << "caught " << e.what() << endl;
+		}
 
     orb->run();
   }
